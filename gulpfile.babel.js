@@ -9,6 +9,7 @@ import uglify from 'gulp-uglify';
 import sass from 'gulp-sass';
 import connect from 'gulp-connect'
 import autoprefix from 'gulp-autoprefixer';
+import obfuscate from 'gulp-obfuscate';
 
 const dirs={
     src:'./src',
@@ -44,7 +45,7 @@ gulp.task('styles',()=>{
         .pipe(plumber())
         .pipe(sass())
         .pipe(autoprefix({
-            browsers:['> 5%']
+            browsers:['> 1%']
         }))
         .pipe(connect.reload())
         .pipe(gulp.dest(stylePath.dest));
@@ -54,6 +55,7 @@ gulp.task('scripts',()=>{
     return gulp.src(es6Path.src)
         .pipe(plumber())
         .pipe(babel())
+        .pipe(uglify())
         .pipe(connect.reload())
         .pipe(gulp.dest(es6Path.dest));
 });
