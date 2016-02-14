@@ -1,0 +1,106 @@
+@import "//filehost.izhai.net/web/font-awesome/4.5.0/css/font-awesome.css";
+.sp-wrapper{
+  font-family: "Merriweather",serif;
+  color:#333;
+  .clearfix{
+    overflow: auto;
+    zoom: 1;
+  }
+  width:100%;
+  position: relative;
+  .sp-stage{
+    width:80%;
+    height:80%;
+    max-width: 510px;
+    overflow: hidden;
+    margin: 0 auto;
+    padding:20px 60px;
+    position: relative;
+    img.sp-pic{
+      width:100px;
+      height:100px;
+      float: left;
+    }
+    .sp-logo{
+      position: absolute;
+      bottom: 0;
+      right:0;
+      color:#969393;
+    }
+    .sp-right{
+      float: left;
+      margin-left:10px;
+      width:calc(100% - 110px);
+      position: relative;
+      .sp-title{
+        font-size:2em;
+      }
+      .sp-meta {
+        top: calc(2em + 5px);
+        left:8px;
+        position: absolute;
+        transition: all .5s;
+        .meta-album{
+          font-size: 1.6em;
+        }
+        .meta-singer{
+          margin-top: 5px;
+          font-size: 1.1em;
+        }
+        .sp-hint{
+          margin-top: 10px;
+          font-size: 0.9em;
+          text-align: right;
+          width:100%;
+        }
+      }
+      .sp-control{
+        opacity: 0;
+        position: absolute;
+        top:3em;
+        transition:all .5s;
+        transform: translateX(-50%);
+        left: 50%;
+        .sp-btn-loop{
+          opacity: 0;
+        }
+        .sp-btn-prev{
+          opacity: 0;
+        }
+        .sp-btn-next{
+          opacity: 0;
+        }
+        .sp-btn-lyr{
+          opacity: 0;
+        }
+        .sp-btn-playstop{
+          transition:all .5s;
+          opacity:0;
+        }
+        button{
+          background-color: transparent;
+          border: none;
+          outline: none;
+          cursor: pointer;
+        }
+      }
+      .sp-timer{
+        display: none;
+      }
+    }
+    &:hover{
+      .sp-meta{
+        transform: translateX(50%);
+        opacity: 0;
+      }
+      .sp-control{
+        opacity: 1;
+        .sp-btn-playstop{
+          opacity:1;
+          font-size:3em;
+        }
+
+      }
+    }
+  }
+}

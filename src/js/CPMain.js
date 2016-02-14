@@ -1,8 +1,16 @@
 'use strict';
-class CPlayer{
+class SPlayer{
     constructor(option) {
-        this.selector = option.selector || "#CPlayer";
+        this.selector = option.selector || "#SPlayer";
+        this.id=this.generateId(6);
+        this.parentDom="";
         this.createDom();
+    }
+    generateId(length){
+        let seed='1234567890abcdefjhijklmnopqrstuvwxyz';
+        var rst="";
+        for (var i=0;i<length;i++) rst += seed[Math.round(Math.random()*(seed.length-1))]
+        return rst;
     }
 
     getParentDom(){
@@ -20,8 +28,7 @@ class CPlayer{
         if (this.parentDom==null){
             throw new Error('CPlayer: Parent Dom has not been specified!');
         }
-        console.log(this.parentDom);
-    };
+    }
 
     createDom(){
         if (!this.parentDom) this.getParentDom();

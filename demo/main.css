@@ -2,6 +2,6 @@ body{
     margin: 0;
     padding: 0;
 }
-#player{
+.player-wrapper{
     width:100%;
 }

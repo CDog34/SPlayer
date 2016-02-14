@@ -8,12 +8,45 @@
 </head>
 <body>
 
-<CPlayer></CPlayer>
+<SPlayer></SPlayer>
+<div class="player-wrapper">
+    <div class="sp-wrapper">
+        <div class="sp-stage clearfix">
+            <img src="https://tat.pics/v/1455293829298120085627.jpg" class="sp-pic" alt="albumPic">
+            <div class="sp-right">
+                <div class="sp-title">Aim ~We can do all to be fine</div>
+                <div class="sp-meta">
+                    <div class="meta-album">Aim ~We can do all to be fine</div>
+                    <div class="meta-singer">川田麻美</div>
+                    <div class="sp-hint">Click to Play</div>
+                </div>
+                <div class="sp-control">
+                    <div class="sp-process-bar">
+                        <div class="bar-inner-loaded"></div>
+                        <div class="bar-inner-played"></div>
+                    </div>
+                    <div class="sp-panel">
+                        <button class="sp-btn-loop">循</button>
+                        <button class="sp-btn-prev">上</button>
+                        <button class="sp-btn-playstop"><i class="fa fa-play"></i></button>
+                        <button class="sp-btn-next">下</button>
+                        <button class="sp-btn-lyr">词</button>
+                    </div>
+                </div>
+                <div class="sp-lyr"></div>
+                <div class="sp-timer">
+                    <span class="time-current">03:41</span><span class="time-separator">/</span><span class="time-total">06:01</span>
+                </div>
+            </div>
+            <div class="sp-logo">Splayer</div>
+        </div>
+    </div>
+</div>
 
 <script src="../dest/CPMain.js"></script>
 <script>
-    new CPlayer({
-        selector:'CPlayer'
+    new SPlayer({
+        selector:'SPlayer'
 
     })
 </script>
