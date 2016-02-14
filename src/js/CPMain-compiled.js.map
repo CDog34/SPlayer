@@ -1,0 +1,1 @@
+{"version":3,"sources":["CPMain.js"],"names":[],"mappings":"AAAA,SAAS,OAAO,CAAC,MAAM,EAAC;AACpB,QAAI,IAAI,GAAC,IAAI,CAAC;CAEjB","file":"CPMain-compiled.js","sourcesContent":["function CPlayer(option){\n    let self=this;\n\n}"]}
