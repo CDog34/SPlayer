@@ -1,0 +1,22 @@
+{
+  "name": "cplayer",
+  "version": "0.0.1",
+  "description": "A light-weight HTML5 player widget",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@git.cdog.work:2202/CDog/CPlayer.git"
+  },
+  "keywords": [
+    "Player",
+    "html5"
+  ],
+  "author": "CDog",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
