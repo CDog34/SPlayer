@@ -10,6 +10,7 @@ import sass from 'gulp-sass';
 import connect from 'gulp-connect'
 import autoprefix from 'gulp-autoprefixer';
 import obfuscate from 'gulp-obfuscate';
+import usemin from 'gulp-usemin';
 
 const dirs={
     src:'./src',
@@ -65,5 +66,6 @@ gulp.task('watch',()=>{
     gulp.watch(es6Path.src,['scripts']);
     gulp.watch(stylePath.src,['styles']);
 });
+
 
 gulp.task('dev',['styles','scripts','devServer','watch']);

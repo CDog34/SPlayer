@@ -4,7 +4,99 @@ class SPlayer{
         this.selector = option.selector || "#SPlayer";
         this.id=this.generateId(6);
         this.parentDom="";
+        this.songs=option.songs;
+        this.css=option.css || '../dest/CPMain.css';
+        this.auto=option.auto || false;
+        this.currentPlaying=0;
+        this.loadCss();
+        this.player=new Audio();
         this.createDom();
+        this.initPlayer();
+        this.initSong(this.songs[this.currentPlaying]);
+
+    }
+
+    loadCss(){
+        let c=document.getElementById('splayer-css');
+        if (c) return;
+        c=document.createElement('link');
+        c.href=this.css;
+        c.rel='stylesheet';
+        c.type='text/css';
+        c.id='splayer-css';
+        document.getElementsByTagName('head')[0].appendChild(c)
+    }
+
+    initSong(song){
+        this.title.innerHTML=song.name;
+        this.albumImg.src=song.img;
+        this.album.innerHTML=song.album;
+        this.player.src=song.url;
+        this.singer.innerHTML=song.singer;
+        console.log(this.player.duration)
+
+    }
+
+    nextSong(){
+        if (this.currentPlaying+1 >this.songs.length-1 ) return;
+        this.initSong(this.songs[++this.currentPlaying]);
+        this.player.play();
+    }
+    prevSong(){
+        if (this.currentPlaying-1 < 0 ) return;
+        this.initSong(this.songs[--this.currentPlaying]);
+        this.player.play();
+    }
+
+
+
+    getTime(t){
+        let m=(t/60) | 0,
+            s=(t%60) | 0;
+        return  (m<10 ? '0'+m.toString() : m.toString() )+':'+(s<10 ? '0'+s.toString() : s.toString() );
+    }
+
+    initPlayer(){
+        this.player.autoplay=this.auto;
+        this.currentTime.innerHTML=this.getTime(0);
+        this.player.addEventListener('loadedmetadata',(e) =>{
+            this.totalTime.innerHTML=this.getTime(this.player.duration);
+        });
+        this.player.addEventListener('play',(e) =>{
+            this.btnPlayStop.innerHTML="<i class=\"fa fa-pause\"></i>";
+            this.stage.classList.add('sp-playing');
+        });
+        this.player.addEventListener('pause',(e) =>{
+            this.btnPlayStop.innerHTML="<i class=\"fa fa-play\"></i>";
+            this.stage.classList.remove('sp-playing');
+        });
+        this.player.addEventListener('timeupdate',(e) =>{
+            this.currentTime.innerHTML=this.getTime(this.player.currentTime)
+        });
+        this.btnPlayStop.addEventListener('click',(e) =>{
+            if (!this.player.paused){
+                this.player.pause();
+            }else{
+                this.player.play();
+            }
+        });
+        this.btnNext.addEventListener('click',(e) =>{
+            this.nextSong();
+        });
+        this.btnPrev.addEventListener('click',(e) =>{
+            this.prevSong();
+        });
+        this.btnLoop.classList.add('gray');
+        this.btnLoop.addEventListener('click',(e) =>{
+            if (this.player.loop){
+                this.player.loop=false;
+                this.btnLoop.classList.add('gray');
+            }else{
+                this.player.loop=true;
+                this.btnLoop.classList.remove('gray');
+            }
+        });
+        this.btnLyr.classList.add('gray');
     }
     generateId(length){
         let seed='1234567890abcdefjhijklmnopqrstuvwxyz';
@@ -29,6 +121,7 @@ class SPlayer{
             throw new Error('CPlayer: Parent Dom has not been specified!');
         }
     }
+
 
     createDom(){
         var createEle = ({name,id,cls,html}) =>{
@@ -63,9 +156,9 @@ class SPlayer{
             btnLyr=createEle({name:'button',cls:'sp-btn-lyr',html:'<i class="fa fa-file-text"></i>'}),
             lyrStage=createEle({cls:'sp-lyr'}),
             timerWrapper=createEle({cls:'sp-timer'}),
-            currentTime=createEle({name:'span',cls:'current-time'}),
-            timeSeparator=createEle({name:'span',cls:'time-separator'}),
-            totalTime=createEle({name:'span',cls:'total-time'}),
+            currentTime=createEle({name:'span',cls:'time-current'}),
+            timeSeparator=createEle({name:'span',cls:'time-separator',html:'/'}),
+            totalTime=createEle({name:'span',cls:'time-total'}),
             logo=createEle({cls:'sp-logo',html:'SPlayer'});
 
 

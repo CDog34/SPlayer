@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>CPTest</title>
-    <link rel="stylesheet" href="../dest/CPMain.css">
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
 
 <SPlayer></SPlayer>
+<Slayer></Slayer>
 <div class="player-wrapper">
     <div class="sp-wrapper">
         <div class="sp-stage clearfix sp-playing">
@@ -46,7 +46,37 @@
 <script src="../dest/CPMain.js"></script>
 <script>
     new SPlayer({
-        selector:'SPlayer'
+        selector:'SPlayer',
+        songs:[{
+            url:"http://m2.music.126.net/pvW_wYqTn0UPB57jx64w_A==/3307330978061649.mp3",
+            name:"Aim ~We can do all to be fine",
+            album:"シロガネxスピリッツ",
+            img:"https://tat.pics/v/1455293829298120085627.jpg",
+            singer:'川田麻美'
+        }]
+
+
+    })
+    new SPlayer({
+        selector:'Slayer',
+        auto:true,
+        songs:[
+            {
+                url:"http://m2.music.126.net/pvW_wYqTn0UPB57jx64w_A==/3307330978061649.mp3",
+                name:"Aim ~We can do all to be fine",
+                album:"シロガネxスピリッツ",
+                img:"https://tat.pics/v/1455293829298120085627.jpg",
+                singer:'川田麻美'
+            },
+            {
+                url:"http://m2.music.126.net/ArOdRvkap3TEsk2kiwb1kw==/1383185628086315.mp3",
+                name:"fantastic dreamer",
+                album:"fantastic dreamer",
+                img:"http://p4.music.126.net/uj0jS9Qnc2cirRl6q0SK1A==/1418370000157194.jpg",
+                singer:"Machico"
+            }
+        ]
+
 
     })
 </script>
