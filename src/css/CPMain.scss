@@ -3,6 +3,8 @@
 .sp-wrapper{
   font-family: "Merriweather",serif;
   color:#333;
+  font-size: 16px;
+  line-height:1;
   .clearfix{
     overflow: auto;
     zoom: 1;
@@ -11,16 +13,21 @@
   position: relative;
   .sp-stage{
     width:80%;
-    height:80%;
     max-width: 510px;
     overflow: hidden;
     margin: 0 auto;
     padding:20px 60px;
     position: relative;
+    height: 100px;
+    overflow: hidden;
     img.sp-pic{
       width:100px;
       height:100px;
       float: left;
+      position: relative;
+      top:50%;
+      transform:translateY(-50%);
+
     }
     .sp-logo{
       position: absolute;
@@ -59,11 +66,12 @@
       }
       .sp-control{
         position: absolute;
-        top:3em;
+        top:50px;
         transition:all .5s;
         transform: translateX(-50%);
         left: 50%;
         display: none;
+        margin-top: 10px;
         button{
           background-color: transparent;
           border: none;
@@ -80,7 +88,7 @@
         display: none;
         font-size: 2em;
         text-align: center;
-        margin-top: .7em;
+        margin-top: 20px;
         transition:all .5s;
         .time-total,.time-separator{
           font-size: .7em;
@@ -98,6 +106,8 @@
         .sp-btn-playstop{
           display:block;
           font-size:3em;
+          position: relative;
+          bottom: 20px;
         }
       }
     }
