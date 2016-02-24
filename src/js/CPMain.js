@@ -1,6 +1,7 @@
 'use strict';
 class SPlayer{
     constructor(option) {
+        if (document.getElementsByTagName('body')[0].clientWidth<500) return;
         this.selector = option.selector || "#SPlayer";
         this.id=this.generateId(6);
         this.parentDom="";
