@@ -5,7 +5,7 @@ class SPlayer{
         this.id=this.generateId(6);
         this.parentDom="";
         this.songs=option.songs;
-        this.css=option.css || '../dest/CPMain.css';
+        this.css=option.css || '//filehost.izhai.net/web/SP/newest/style.css';
         this.auto=option.auto || false;
         this.currentPlaying=0;
         this.loadCss();

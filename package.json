@@ -1,7 +1,7 @@
 {
-  "name": "cplayer",
+  "name": "splayer",
   "version": "0.0.1",
-  "description": "A light-weight HTML5 player widget",
+  "description": "A Simple Player - SPlayer",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
