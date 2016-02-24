@@ -11,6 +11,7 @@ import connect from 'gulp-connect'
 import autoprefix from 'gulp-autoprefixer';
 import obfuscate from 'gulp-obfuscate';
 import usemin from 'gulp-usemin';
+import concat from 'gulp-concat'
 
 const dirs={
     src:'./src',
@@ -67,5 +68,25 @@ gulp.task('watch',()=>{
     gulp.watch(stylePath.src,['styles']);
 });
 
+gulp.task('build-styles',()=>{
+    return gulp.src(stylePath.src)
+        .pipe(plumber())
+        .pipe(sass({
+            outputStyle: 'compressed'
+        }))
+        .pipe(autoprefix({
+            browsers:['> 1%']
+        }))
+        .pipe(concat('style.css'))
+        .pipe(gulp.dest('build/'));
+});
+gulp.task('build-scripts',()=>{
+    return gulp.src(es6Path.src)
+        .pipe(plumber())
+        .pipe(babel())
+        .pipe(uglify())
+        .pipe(gulp.dest('build/'));
+});
 
 gulp.task('dev',['styles','scripts','devServer','watch']);
+gulp.task('build',['build-styles','build-scripts']);
